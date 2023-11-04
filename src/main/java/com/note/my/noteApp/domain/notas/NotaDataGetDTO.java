@@ -4,9 +4,15 @@
  */
 package com.note.my.noteApp.domain.notas;
 
+import jakarta.validation.constraints.NotBlank;
+
 /**
  *
  * @author kedwin
  */
-public record NotaDataGetDTO(String titulo, String mensaje) {
+public record NotaDataGetDTO( 
+        @NotBlank
+        String titulo, 
+        @NotBlank
+        String mensaje) {
 }

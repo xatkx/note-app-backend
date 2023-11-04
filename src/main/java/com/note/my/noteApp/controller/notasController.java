@@ -8,6 +8,7 @@ import com.note.my.noteApp.domain.notas.NotaDataGetDTO;
 import com.note.my.noteApp.domain.notas.NotaDataSendDTO;
 import com.note.my.noteApp.domain.notas.NotaEntity;
 import com.note.my.noteApp.domain.notas.NotaService;
+import jakarta.validation.Valid;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -46,14 +47,14 @@ public class notasController {
     }
     
     @PostMapping
-    public ResponseEntity post(@RequestBody NotaDataGetDTO data){
+    public ResponseEntity post(@RequestBody @Valid NotaDataGetDTO data){
         service.saveOne(data);
         return ResponseEntity.ok().build();
     }
     
     
     @PutMapping("/{id}")
-    public ResponseEntity put( @RequestBody NotaDataGetDTO dato,@PathVariable String id){
+    public ResponseEntity put( @RequestBody @Valid NotaDataGetDTO dato,@PathVariable String id){
         service.update(dato,id);
         return ResponseEntity.ok().build();
     }
